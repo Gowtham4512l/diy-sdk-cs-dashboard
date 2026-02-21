@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
-import { Maximize, Minimize, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Maximize, Minimize } from 'lucide-react';
 
 interface PresentationProps {
     children: ReactNode[];
@@ -113,6 +113,14 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
                 })}
             </div>
 
+            {/* Minimal Progress Bar at bottom edge */}
+            <div className="absolute bottom-0 left-0 w-full h-[3px] bg-white/10 z-50">
+                <div
+                    className="h-full bg-white/80 transition-all duration-300 ease-out"
+                    style={{ width: `${((currentIndex + 1) / totalSlides) * 100}%` }}
+                />
+            </div>
+
             {/* Top right keyboard hint */}
             <div
                 className={`absolute top-[4%] right-[4%] z-50 text-[11px] text-white/40 tracking-wide transition-opacity duration-300 pointer-events-none ${showControls ? 'opacity-100' : 'opacity-0'}`}
@@ -120,52 +128,22 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
                 ← → Navigate · F Fullscreen
             </div>
 
-            {/* Bottom Controls */}
-            <div
-                className={`absolute bottom-[4%] left-1/2 -translate-x-1/2 z-50 flex items-center gap-8 px-6 py-3 rounded-full liquid-glass transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-            >
+
+
+            {/* Bottom Corner Controls (Slide number & Fullscreen) */}
+            <div className={`absolute bottom-[4%] left-[4%] right-[4%] z-50 flex justify-between items-end pointer-events-none transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
                 {/* Left: Counter */}
-                <div className="text-[13px] text-white/50 tabular-nums font-medium">
-                    {currentIndex + 1} / {totalSlides}
+                <div className="liquid-glass px-4 py-2 rounded-2xl text-[14px] text-white/90 tabular-nums font-medium pointer-events-auto shadow-lg">
+                    {currentIndex + 1} <span className="opacity-40 ml-0.5">/ {totalSlides}</span>
                 </div>
 
-                {/* Center: Dots */}
-                <div className="flex items-center gap-2">
-                    {React.Children.map(children, (_, idx) => (
-                        <div
-                            key={idx}
-                            className={`h-[6px] rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-[24px] bg-white/90' : 'w-[6px] bg-white/30'
-                                }`}
-                        />
-                    ))}
-                </div>
-
-                {/* Right: Controls */}
-                <div className="flex items-center gap-1">
-                    <button
-                        onClick={goToPrevSlide}
-                        disabled={currentIndex === 0}
-                        className="p-1.5 text-white/50 hover:text-white/90 hover:bg-white/10 rounded-full transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white/50"
-                    >
-                        <ChevronLeft size={20} />
-                    </button>
-                    <button
-                        onClick={goToNextSlide}
-                        disabled={currentIndex === totalSlides - 1}
-                        className="p-1.5 text-white/50 hover:text-white/90 hover:bg-white/10 rounded-full transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white/50"
-                    >
-                        <ChevronRight size={20} />
-                    </button>
-
-                    <div className="w-[1px] h-4 bg-white/10 mx-1" />
-
-                    <button
-                        onClick={toggleFullscreen}
-                        className="p-1.5 text-white/50 hover:text-white/90 hover:bg-white/10 rounded-full transition-colors"
-                    >
-                        {isFullscreen ? <Minimize size={18} /> : <Maximize size={18} />}
-                    </button>
-                </div>
+                {/* Right: Fullscreen Toggle */}
+                <button
+                    onClick={toggleFullscreen}
+                    className="liquid-glass p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-2xl transition-all pointer-events-auto shadow-lg"
+                >
+                    {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
+                </button>
             </div>
         </div>
     );

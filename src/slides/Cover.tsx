@@ -18,20 +18,20 @@ export const Cover: React.FC = () => {
                     Thanks to
                 </div>
 
-                <div className="text-[clamp(14px,1.5vw,24px)] text-white/80 leading-[1.6]">
-                    Gani, <br />
-                    Rahul Karthik Naligala, <br />
-                    Hari Prasadh, <br />
-                    Prasath, <br />
-                    Revanth Venkata, <br />
-                    Suram Vishnu Vardhan Reddy, <br />
-                    Anbarasan Felix, <br />
-                    Bhanu Prakash, <br />
-                    Kavya, <br />
-                    Maroof Ansari, <br />
-                    Nithish, <br />
-                    Rohith Perala, <br />
-                    Gowtham Reddy
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2 text-[clamp(14px,1.5vw,22px)] text-white/80 leading-[1.6] text-center">
+                    <div>Gani</div>
+                    <div>Rahul Karthik Naligala</div>
+                    <div>Hari Prasadh</div>
+                    <div>Prasath</div>
+                    <div>Revanth Venkata</div>
+                    <div>Suram Vishnu Vardhan Reddy</div>
+                    <div>Anbarasan Felix</div>
+                    <div>Bhanu Prakash</div>
+                    <div>Kavya</div>
+                    <div>Maroof Ansari</div>
+                    <div>Nithish</div>
+                    <div>Rohith Perala</div>
+                    <div className="sm:col-span-3 font-semibold text-white/90 mt-2">Gowtham Reddy</div>
                 </div>
             </div>
         </div>
