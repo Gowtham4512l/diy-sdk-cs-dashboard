@@ -1,7 +1,7 @@
 import React from 'react';
 import { VideoBackground } from '../components/VideoBackground';
 
-export const PdfSlide9_BigIdea: React.FC = () => {
+export const BigIdea: React.FC = () => {
     return (
         <div className="relative w-full h-full flex flex-col p-[4%]">
             <VideoBackground src="https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8" />

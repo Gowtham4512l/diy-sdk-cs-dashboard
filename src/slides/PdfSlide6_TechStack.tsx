@@ -2,7 +2,7 @@ import React from 'react';
 import { VideoBackground } from '../components/VideoBackground';
 import { Bullet as SharedBullet } from '../components/Bullet';
 
-export const PdfSlide6_TechStack: React.FC = () => {
+export const TechStack: React.FC = () => {
     return (
         <div className="relative w-full h-full flex flex-col p-[4%]">
             <VideoBackground src="https://stream.mux.com/JNJEOYI6B3EffB9f5ZhpGbuxzc6gSyJcXaCBbCgZKRg.m3u8" />

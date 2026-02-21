@@ -2,7 +2,7 @@ import React from 'react';
 import { VideoBackground } from '../components/VideoBackground';
 import { Bullet } from '../components/Bullet';
 
-export const PdfSlide3_DashHighlights: React.FC = () => {
+export const DashHighlights: React.FC = () => {
     return (
         <div className="relative w-full h-full flex flex-col p-[4%]">
             <VideoBackground src="https://stream.mux.com/fHfa8VIbBdqZelLGg5thjsypZ101M01dbyIMLNDWQwlLA.m3u8" />

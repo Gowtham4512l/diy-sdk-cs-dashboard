@@ -2,7 +2,7 @@ import React from 'react';
 import { VideoBackground } from '../components/VideoBackground';
 import { Bullet } from '../components/Bullet';
 
-export const PdfSlide7_Refactors: React.FC = () => {
+export const Refactors: React.FC = () => {
     return (
         <div className="relative w-full h-full flex flex-col p-[4%]">
             <VideoBackground src="https://stream.mux.com/Kec29dVyJgiPdtWaQtPuEiiGHkJIYQAVUJcNiIHUYeo.m3u8" />

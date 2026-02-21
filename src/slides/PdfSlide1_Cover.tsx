@@ -1,7 +1,7 @@
 import React from 'react';
 import { VideoBackground } from '../components/VideoBackground';
 
-export const PdfSlide1_Cover: React.FC = () => {
+export const Cover: React.FC = () => {
     return (
         <div className="relative w-full h-full flex flex-col justify-center items-center p-[4%] text-center">
             <VideoBackground src="https://stream.mux.com/JNJEOYI6B3EffB9f5ZhpGbuxzc6gSyJcXaCBbCgZKRg.m3u8" />
