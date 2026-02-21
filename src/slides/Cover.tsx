@@ -18,7 +18,7 @@ export const Cover: React.FC = () => {
                     Thanks to
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2 text-[clamp(14px,1.5vw,22px)] text-white/80 leading-[1.6] text-center">
+                <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-[clamp(14px,1.5vw,22px)] text-white/80 leading-[1.6] text-center max-w-[90%]">
                     <div>Gani</div>
                     <div>Rahul Karthik Naligala</div>
                     <div>Hari Prasadh</div>
@@ -31,7 +31,7 @@ export const Cover: React.FC = () => {
                     <div>Maroof Ansari</div>
                     <div>Nithish</div>
                     <div>Rohith Perala</div>
-                    <div className="sm:col-span-3 font-semibold text-white/90 mt-2">Gowtham Reddy</div>
+                    <div>Gowtham Reddy</div>
                 </div>
             </div>
         </div>

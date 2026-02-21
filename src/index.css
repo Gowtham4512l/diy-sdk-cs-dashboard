@@ -12,10 +12,10 @@
 
 @layer utilities {
   .liquid-glass {
-    background: 
-      radial-gradient(circle at top left, rgba(255,255,255,0.15) 0%, transparent 40%),
-      linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
     backdrop-filter: blur(24px) saturate(1.4);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 }
