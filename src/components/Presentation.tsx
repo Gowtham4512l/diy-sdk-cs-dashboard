@@ -13,6 +13,12 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const hideControlsTimeoutRef = useRef<number | null>(null);
 
+    // Navigation state refs
+    const touchStartRef = useRef<{ x: number, y: number } | null>(null);
+    const lastWheelTimeRef = useRef<number>(0);
+    const WHEEL_COOLDOWN = 600; // ms cooldown between scroll actions
+    const SWIPE_THRESHOLD = 50;  // minimum px movement to register as a swipe
+
     const totalSlides = React.Children.count(children);
 
     const goToNextSlide = () => setCurrentIndex((prev) => Math.min(prev + 1, totalSlides - 1));
@@ -115,8 +121,61 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
         return () => window.removeEventListener('mousemove', handleGlassMouseMove);
     }, []);
 
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartRef.current = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY
+        };
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        if (!touchStartRef.current) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+
+        const deltaX = touchStartRef.current.x - touchEndX;
+        const deltaY = touchStartRef.current.y - touchEndY;
+
+        // Determine if horizontal or vertical swipe was more dominant
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+                if (deltaX > 0) goToNextSlide();
+                else goToPrevSlide();
+            }
+        } else {
+            if (Math.abs(deltaY) > SWIPE_THRESHOLD) {
+                if (deltaY > 0) goToNextSlide();
+                else goToPrevSlide();
+            }
+        }
+
+        touchStartRef.current = null;
+    };
+
+    const handleWheel = (e: React.WheelEvent) => {
+        const now = Date.now();
+        if (now - lastWheelTimeRef.current < WHEEL_COOLDOWN) return;
+
+        // Decrease threshold to allow easier scrolling
+        const wheelThreshold = 10;
+        const dominantDelta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+
+        if (Math.abs(dominantDelta) > wheelThreshold) {
+            lastWheelTimeRef.current = now;
+            if (dominantDelta > 0) goToNextSlide();
+            else goToPrevSlide();
+        }
+    };
+
     return (
-        <div ref={containerRef} className="relative w-screen h-screen overflow-hidden mesh-bg text-white font-sans bg-[#030305]">
+        <div
+            ref={containerRef}
+            className="relative w-screen h-screen overflow-hidden mesh-bg text-white font-sans bg-[#030305]"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onWheel={handleWheel}
+        >
             {/* Ambient Background Glows & Grid */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute inset-0 bg-grid opacity-50" />
