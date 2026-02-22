@@ -21,9 +21,7 @@ export const Retrospective: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full mt-2 lg:mt-4">
                     {/* The Good */}
                     <div className="liquid-glass p-6 lg:p-10 rounded-3xl flex flex-col shadow-2xl border border-white/5 relative overflow-hidden group hover:bg-white/[0.03] transition-colors duration-500">
-                        <div className="absolute top-0 right-0 p-6 opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 pointer-events-none text-green-400">
-                            <ThumbsUp size={100} />
-                        </div>
+
                         <div className="flex items-center gap-4 mb-6 relative z-10">
                             <div className="p-3 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-xl shadow-lg border border-green-500/30">
                                 <ThumbsUp className="text-green-400" size={28} />
@@ -49,9 +47,7 @@ export const Retrospective: React.FC = () => {
 
                     {/* The Bad */}
                     <div className="liquid-glass p-6 lg:p-10 rounded-3xl flex flex-col shadow-2xl border border-white/5 relative overflow-hidden group hover:bg-white/[0.03] transition-colors duration-500">
-                        <div className="absolute top-0 right-0 p-6 opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 pointer-events-none text-yellow-400">
-                            <ThumbsDown size={100} />
-                        </div>
+
                         <div className="flex items-center gap-4 mb-6 relative z-10">
                             <div className="p-3 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 rounded-xl shadow-lg border border-yellow-500/30">
                                 <ThumbsDown className="text-yellow-400" size={28} />
@@ -73,9 +69,7 @@ export const Retrospective: React.FC = () => {
 
                     {/* The Ugly */}
                     <div className="liquid-glass p-6 lg:p-10 rounded-3xl flex flex-col shadow-2xl border border-white/5 relative overflow-hidden group hover:bg-white/[0.03] transition-colors duration-500">
-                        <div className="absolute top-0 right-0 p-6 opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 pointer-events-none text-red-400">
-                            <AlertTriangle size={100} />
-                        </div>
+
                         <div className="flex items-center gap-4 mb-6 relative z-10">
                             <div className="p-3 bg-gradient-to-br from-red-400/20 to-red-600/20 rounded-xl shadow-lg border border-red-500/30">
                                 <AlertTriangle className="text-red-400" size={28} />
