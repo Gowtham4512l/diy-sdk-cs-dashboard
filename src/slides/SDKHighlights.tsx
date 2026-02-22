@@ -10,10 +10,10 @@ export const SDKHighlights: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-7xl flex flex-col h-full justify-center">
                 <header className="mb-12 text-center">
-                    <h1 className="text-[clamp(40px,5vw,72px)] font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+                    <h1 className="premium-gradient-text text-[clamp(44px,6vw,84px)] font-extrabold tracking-[-0.04em] mb-3 drop-shadow-2xl">
                         2025 <span className="text-[#D2FF55]">Highlights</span>
                     </h1>
-                    <h2 className="text-[clamp(24px,3vw,42px)] font-medium text-white/70">
+                    <h2 className="text-[clamp(24px,3vw,42px)] font-semibold text-white/50 tracking-wide uppercase">
                         What did we ship? (SDK)
                     </h2>
                 </header>
@@ -24,9 +24,9 @@ export const SDKHighlights: React.FC = () => {
                             <Rocket size={120} />
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Built and released the BLE SDK for both Android and iOS, which enables client apps to interact with Gen 3.0 YCUs." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Integrated the SDK into Ops, OEM, and Yuma Partner apps." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Added Jitsu Analytics to track swap sessions in real time, helping with monitoring and issue debugging." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Built and released the BLE SDK for both Android and iOS, which enables client apps to interact with Gen 3.0 YCUs." color="bg-[#D2FF55]" />
+                            <Bullet text="Integrated the SDK into Ops, OEM, and Yuma Partner apps." color="bg-[#D2FF55]" />
+                            <Bullet text="Added Jitsu Analytics to track swap sessions in real time, helping with monitoring and issue debugging." color="bg-[#D2FF55]" />
                         </div>
                     </div>
 
@@ -35,8 +35,8 @@ export const SDKHighlights: React.FC = () => {
                             <Zap size={120} />
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Developed OEM Manual Swap, where users scan the charged battery they received, ensuring the database is updated and the swap token is completed correctly." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Consolidated the SDK's network architecture from 4 fragmented API clients into a unified system with dedicated OEM separation, improving performance and making it easier to add new API calls." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Developed OEM Manual Swap, where users scan the charged battery they received, ensuring the database is updated and the swap token is completed correctly." color="bg-[#D2FF55]" />
+                            <Bullet text="Consolidated the SDK's network architecture from 4 fragmented API clients into a unified system with dedicated OEM separation, improving performance and making it easier to add new API calls." color="bg-[#D2FF55]" />
                         </div>
                     </div>
                 </div>

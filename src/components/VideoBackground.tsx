@@ -37,13 +37,20 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({ src }) => {
     }, [src]);
 
     return (
-        <video
-            ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-        />
+        <div className="sticky top-0 left-0 w-full h-0 z-[-20] pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-[100dvh] overflow-hidden bg-black">
+                {/* The video itself morphed into a massive glowing, moving gradient */}
+                <video
+                    ref={videoRef}
+                    className="absolute inset-0 w-full h-full object-cover saturate-[250%] contrast-125 opacity-90 mix-blend-screen scale-[1.15] blur-[80px]"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                />
+                {/* Very slight dark wash so it doesn't blind the user, but still lets colors glow huge */}
+                <div className="absolute inset-0 bg-[#030305]/20 pointer-events-none"></div>
+            </div>
+        </div>
     );
 };

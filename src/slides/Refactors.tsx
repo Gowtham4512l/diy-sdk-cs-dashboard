@@ -10,7 +10,7 @@ export const Refactors: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-7xl flex flex-col h-full justify-center">
                 <header className="mb-12 text-center">
-                    <h1 className="text-[clamp(40px,5vw,72px)] font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+                    <h1 className="premium-gradient-text text-[clamp(44px,6vw,84px)] font-extrabold tracking-[-0.04em] mb-3 drop-shadow-2xl">
                         Major <span className="text-[#D2FF55]">Refactors</span> Needed
                     </h1>
                 </header>
@@ -25,12 +25,12 @@ export const Refactors: React.FC = () => {
                             <div className="p-4 bg-gradient-to-br from-[#B750B2] to-[#80357e] rounded-2xl shadow-lg">
                                 <Hammer className="text-white" size={32} />
                             </div>
-                            <h3 className="text-[clamp(28px,3vw,42px)] font-bold text-white tracking-wide">SDK</h3>
+                            <h3 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-wide">SDK</h3>
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Migrate to Modern DI: Replace manual ServiceLocator with Hilt or Koin to resolve God Object issues and improve testability." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Initialization Safety: Remove Force Unwrap (!!) risks in core service initialization to prevent startup crashes." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Set up a Jira project for the BLE SDK to better track updates." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Migrate to Modern DI: Replace manual ServiceLocator with Hilt or Koin to resolve God Object issues and improve testability." color="bg-[#D2FF55]" />
+                            <Bullet text="Initialization Safety: Remove Force Unwrap (!!) risks in core service initialization to prevent startup crashes." color="bg-[#D2FF55]" />
+                            <Bullet text="Set up a Jira project for the BLE SDK to better track updates." color="bg-[#D2FF55]" />
                         </div>
                     </div>
 
@@ -43,11 +43,11 @@ export const Refactors: React.FC = () => {
                             <div className="p-4 bg-gradient-to-br from-[#4A90E2] to-[#2C5F9E] rounded-2xl shadow-lg">
                                 <Code2 className="text-white" size={32} />
                             </div>
-                            <h3 className="text-[clamp(28px,3vw,42px)] font-bold text-white tracking-wide">CS Dashboard</h3>
+                            <h3 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-wide">CS Dashboard</h3>
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Enable TypeScript strict mode to catch issues early and reduce runtime errors" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Break down large/monolithic components and standardize the API client layer to improve maintainability and ease of refactoring." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Enable TypeScript strict mode to catch issues early and reduce runtime errors" color="bg-[#D2FF55]" />
+                            <Bullet text="Break down large/monolithic components and standardize the API client layer to improve maintainability and ease of refactoring." color="bg-[#D2FF55]" />
                         </div>
                     </div>
                 </div>

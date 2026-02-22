@@ -10,7 +10,7 @@ export const PathForward: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-7xl flex flex-col h-full justify-center">
                 <header className="mb-12 text-center">
-                    <h1 className="text-[clamp(40px,5vw,72px)] font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+                    <h1 className="premium-gradient-text text-[clamp(44px,6vw,84px)] font-extrabold tracking-[-0.04em] mb-3 drop-shadow-2xl">
                         The <span className="text-[#D2FF55]">Path</span> Forward
                     </h1>
                 </header>
@@ -25,13 +25,13 @@ export const PathForward: React.FC = () => {
                             <div className="p-4 bg-gradient-to-br from-[#B750B2] to-[#80357e] rounded-2xl shadow-lg">
                                 <Map className="text-white" size={32} />
                             </div>
-                            <h3 className="text-[clamp(28px,3vw,42px)] font-bold text-white tracking-wide">SDK</h3>
+                            <h3 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-wide">SDK</h3>
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Support multiple battery swaps across multiple YCUs" />
-                            <Bullet text="Provide a complete UI through the SDK" />
-                            <Bullet text="Make the codebase modular and easier to maintain" />
-                            <Bullet text="Enable client apps to track and respond to door open and door close events, allowing clear, real-time user feedback in the UI." />
+                            <SharedBullet text="Support multiple battery swaps across multiple YCUs" />
+                            <SharedBullet text="Provide a complete UI through the SDK" />
+                            <SharedBullet text="Make the codebase modular and easier to maintain" />
+                            <SharedBullet text="Enable client apps to track and respond to door open and door close events, allowing clear, real-time user feedback in the UI." />
                         </div>
                     </div>
 
@@ -44,12 +44,12 @@ export const PathForward: React.FC = () => {
                             <div className="p-4 bg-gradient-to-br from-[#4A90E2] to-[#2C5F9E] rounded-2xl shadow-lg">
                                 <Zap className="text-white" size={32} />
                             </div>
-                            <h3 className="text-[clamp(28px,3vw,42px)] font-bold text-white tracking-wide">CS Dashboard</h3>
+                            <h3 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-wide">CS Dashboard</h3>
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Robust State Management and Testing to Improve System Stability and Release Confidence" />
-                            <Bullet text="Performance and Scale Optimization - to support growing real-time operational usage." />
-                            <Bullet text="Breaking Down Large Single Files into Smaller, Reusable Components" />
+                            <SharedBullet text="Robust State Management and Testing to Improve System Stability and Release Confidence" />
+                            <SharedBullet text="Performance and Scale Optimization - to support growing real-time operational usage." />
+                            <SharedBullet text="Breaking Down Large Single Files into Smaller, Reusable Components" />
                         </div>
                     </div>
                 </div>
@@ -58,6 +58,3 @@ export const PathForward: React.FC = () => {
     );
 };
 
-const Bullet: React.FC<{ text: string }> = ({ text }) => (
-    <SharedBullet text={text} color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed text-white/90" />
-);

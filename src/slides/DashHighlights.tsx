@@ -10,10 +10,10 @@ export const DashHighlights: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-7xl flex flex-col h-full justify-center">
                 <header className="mb-12 text-center">
-                    <h1 className="text-[clamp(40px,5vw,72px)] font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+                    <h1 className="premium-gradient-text text-[clamp(44px,6vw,84px)] font-extrabold tracking-[-0.04em] mb-3 drop-shadow-2xl">
                         2025 <span className="text-[#D2FF55]">Highlights</span>
                     </h1>
-                    <h2 className="text-[clamp(24px,3vw,42px)] font-medium text-white/70">
+                    <h2 className="text-[clamp(24px,3vw,42px)] font-semibold text-white/50 tracking-wide uppercase">
                         What did we ship? (CS Dashboard - Alohomora)
                     </h2>
                 </header>
@@ -24,9 +24,9 @@ export const DashHighlights: React.FC = () => {
                             <Activity size={120} />
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Real-time Dashboard with State of Charge (SoC)" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Cloud Connect Integration for Customer Support." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Remote Control System for Door Access and Other Operations" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Real-time Dashboard with State of Charge (SoC)" color="bg-[#D2FF55]" />
+                            <Bullet text="Cloud Connect Integration for Customer Support." color="bg-[#D2FF55]" />
+                            <Bullet text="Remote Control System for Door Access and Other Operations" color="bg-[#D2FF55]" />
                         </div>
                     </div>
 
@@ -35,10 +35,10 @@ export const DashHighlights: React.FC = () => {
                             <Globe size={120} />
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Battery Type Count Monitoring" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Live Location Tracking for Different User Roles" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="One-click Actions: Reset, Enable, Disable, Mark Faulty" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Easy call back for Missed calls" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Battery Type Count Monitoring" color="bg-[#D2FF55]" />
+                            <Bullet text="Live Location Tracking for Different User Roles" color="bg-[#D2FF55]" />
+                            <Bullet text="One-click Actions: Reset, Enable, Disable, Mark Faulty" color="bg-[#D2FF55]" />
+                            <Bullet text="Easy call back for Missed calls" color="bg-[#D2FF55]" />
                         </div>
                     </div>
                 </div>

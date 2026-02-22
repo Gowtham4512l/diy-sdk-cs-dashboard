@@ -10,6 +10,7 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [showControls, setShowControls] = useState(true);
+    const containerRef = useRef<HTMLDivElement>(null);
     const hideControlsTimeoutRef = useRef<number | null>(null);
 
     const totalSlides = React.Children.count(children);
@@ -18,21 +19,44 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
     const goToPrevSlide = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
 
     const toggleFullscreen = async () => {
-        if (!document.fullscreenElement) {
-            await document.documentElement.requestFullscreen().catch(err => console.error(err));
-            setIsFullscreen(true);
-        } else {
-            await document.exitFullscreen().catch(err => console.error(err));
-            setIsFullscreen(false);
+        try {
+            const elem = containerRef.current || document.documentElement;
+            // @ts-ignore - webkit prefix
+            const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement;
+
+            if (!fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    await elem.requestFullscreen();
+                } else {
+                    // @ts-ignore - webkit prefix
+                    await elem.webkitRequestFullscreen?.();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    await document.exitFullscreen();
+                } else {
+                    // @ts-ignore - webkit prefix
+                    await document.webkitExitFullscreen?.();
+                }
+            }
+        } catch (err) {
+            console.error("Fullscreen error:", err);
         }
     };
 
     useEffect(() => {
         const handleFullscreenChange = () => {
-            setIsFullscreen(!!document.fullscreenElement);
+            // @ts-ignore
+            setIsFullscreen(!!(document.fullscreenElement || document.webkitFullscreenElement));
         };
+
         document.addEventListener('fullscreenchange', handleFullscreenChange);
-        return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+            document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+        };
     }, []);
 
     useEffect(() => {
@@ -75,34 +99,67 @@ export const Presentation: React.FC<PresentationProps> = ({ children }) => {
         };
     }, []);
 
+    useEffect(() => {
+        const handleGlassMouseMove = (e: MouseEvent) => {
+            const cards = document.querySelectorAll('.liquid-glass');
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i] as HTMLElement;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            }
+        };
+        window.addEventListener('mousemove', handleGlassMouseMove);
+        return () => window.removeEventListener('mousemove', handleGlassMouseMove);
+    }, []);
+
     return (
-        <div className="relative w-screen h-screen overflow-hidden bg-black text-white font-sans">
+        <div ref={containerRef} className="relative w-screen h-screen overflow-hidden mesh-bg text-white font-sans bg-[#030305]">
+            {/* Ambient Background Glows & Grid */}
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 bg-grid opacity-50" />
+                <div className="orb-1" />
+                <div className="orb-2" />
+            </div>
+
+            {/* Cinematic Overlays */}
+            <div className="vignette" />
+            <div className="film-grain" />
             {/* Slides */}
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full z-10">
                 {React.Children.map(children, (child, index) => {
-                    let transform = 'scale(1)';
+                    let transform = 'translateX(0) scale(1) translateZ(0)';
                     let opacity = 0;
+                    let filter = 'blur(20px)';
                     let pointerEvents: 'auto' | 'none' = 'none';
 
                     if (index === currentIndex) {
-                        transform = 'scale(1)';
+                        transform = 'translateX(0) scale(1) translateZ(0)';
                         opacity = 1;
+                        filter = 'blur(0px)';
                         pointerEvents = 'auto';
                     } else if (index < currentIndex) {
-                        transform = 'scale(0.95)';
+                        // Slide left, shrink, fly backwards
+                        transform = 'translateX(-15%) scale(0.85) translateZ(-100px)';
                         opacity = 0;
+                        filter = 'blur(30px)';
                     } else {
-                        transform = 'scale(1.05)';
+                        // Slide right, shrink, fly backwards
+                        transform = 'translateX(15%) scale(0.85) translateZ(-100px)';
                         opacity = 0;
+                        filter = 'blur(30px)';
                     }
 
                     return (
                         <div
                             key={index}
-                            className="absolute inset-0 w-full h-full transition-all duration-500 ease-in-out"
+                            className="absolute inset-0 w-full h-full transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
                             style={{
                                 transform,
                                 opacity,
+                                filter,
                                 pointerEvents,
                                 zIndex: index === currentIndex ? 10 : 0
                             }}

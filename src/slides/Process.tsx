@@ -10,10 +10,10 @@ export const Process: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-7xl flex flex-col h-full justify-center">
                 <header className="mb-12 text-center">
-                    <h1 className="text-[clamp(40px,5vw,72px)] font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+                    <h1 className="premium-gradient-text text-[clamp(44px,6vw,84px)] font-extrabold tracking-[-0.04em] mb-3 drop-shadow-2xl">
                         Process <span className="text-[#D2FF55]">Check</span>
                     </h1>
-                    <h2 className="text-[clamp(18px,2vw,32px)] font-medium text-white/70">
+                    <h2 className="text-[clamp(24px,3vw,42px)] font-semibold text-white/50 tracking-wide uppercase">
                         Where are we slowing down? How do we fix it?
                     </h2>
                 </header>
@@ -28,11 +28,11 @@ export const Process: React.FC = () => {
                             <div className="p-4 bg-gradient-to-br from-[#B750B2] to-[#80357e] rounded-2xl shadow-lg">
                                 <Network className="text-white" size={32} />
                             </div>
-                            <h3 className="text-[clamp(28px,3vw,42px)] font-bold text-white tracking-wide">SDK</h3>
+                            <h3 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-wide">SDK</h3>
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="When testing or integrating, failures were hard to debug because real-time logs were not visible in Metabase" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
-                            <Bullet text="Understanding how users use new features was dependent on client apps releasing the latest SDK, which takes longer than expected" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="When testing or integrating, failures were hard to debug because real-time logs were not visible in Metabase" color="bg-[#D2FF55]" />
+                            <Bullet text="Understanding how users use new features was dependent on client apps releasing the latest SDK, which takes longer than expected" color="bg-[#D2FF55]" />
                         </div>
                     </div>
 
@@ -45,12 +45,12 @@ export const Process: React.FC = () => {
                             <div className="p-4 bg-gradient-to-br from-[#4A90E2] to-[#2C5F9E] rounded-2xl shadow-lg">
                                 <Cog className="text-white" size={32} />
                             </div>
-                            <h3 className="text-[clamp(28px,3vw,42px)] font-bold text-white tracking-wide">CS Dashboard</h3>
+                            <h3 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-wide">CS Dashboard</h3>
                         </div>
                         <div className="flex flex-col gap-6 relative z-10">
-                            <Bullet text="Need automation in testing" color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                            <Bullet text="Need automation in testing" color="bg-[#D2FF55]" />
                             <div>
-                                <Bullet text="No pre-commit hooks, bad code gets committed." color="bg-[#D2FF55]" size="w-2.5 h-2.5 mt-2.5" textSize="text-[clamp(16px,1.6vw,24px)] leading-relaxed" />
+                                <Bullet text="No pre-commit hooks, bad code gets committed." color="bg-[#D2FF55]" />
                                 <p className="text-[#D2FF55] text-[clamp(15px,1.4vw,22px)] font-medium mt-3 ml-7 bg-white/5 p-3 rounded-lg border border-white/10 inline-block">
                                     <span className="font-bold text-white">Fix:</span> install husky and lint staged and setup pre commit
                                 </p>
